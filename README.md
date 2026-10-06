@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 Live Demo
-**👉 View the interactive dashboard here: [G8 Workspace Dashboard](https://nhatnguyen920.github.io/G8-Workspace/page/)**
+**👉 View the interactive dashboard here: [G8 Workspace Dashboard](https://nhatnguyen920.github.io/G8-Workspace/)**
 
 ## 👥 Team G8 Members
 | Name | Student ID |
@@ -24,15 +24,15 @@ This repository contains the source code, datasets, and final reports for our co
 
 ### 1. Tabular Data Analysis
 Exploratory Data Analysis (EDA), comprehensive data preprocessing, and application of machine learning models on a selected tabular dataset.
-- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/page/tabular.html)
+- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/tabular.html)
 
 ### 2. Text Data Classification (NLP)
 Natural Language Processing (NLP) techniques including text preprocessing, feature extraction, and machine learning modeling for text data.
-- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/page/text.html)
+- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/text.html)
 
 ### 3. Computer Vision (Image)
 Computer Vision techniques encompassing image preprocessing and the application of deep learning architectures for image analysis.
-- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/page/image.html)
+- [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/image.html)
 
 ---
 *This project was built for the "Programming Foundation for Data Analysis" course.*
