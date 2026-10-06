@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>G8 — Carousel Layout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hcmut-blue: #003366; --hcmut-dark-blue: #0a1f35;
+      --hcmut-gold: #fbc02d; --hcmut-gold-light: #fff176;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, var(--hcmut-dark-blue) 0%, var(--hcmut-blue) 100%);
+      color: #fff;
+      overflow: hidden; /* Ngăn cuộn dọc toàn trang */
+      height: 100vh;
+    }
+    
+    .layout {
+      display: flex;
+      height: 100vh;
+    }
+    
+    /* ─── LEFT COLUMN: FIXED ─── */
+    .left-panel {
+      width: 40%;
+      padding: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .logo-box {
+      width: 50px; height: 50px;
+      border: 1px solid var(--hcmut-gold); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 12px; color: var(--hcmut-gold); text-align: center;
+      margin-bottom: 40px;
+    }
+    .course-title {
+      font-size: clamp(32px, 4vw, 56px); font-weight: 800; line-height: 1.1;
+      margin-bottom: 24px; letter-spacing: -1px;
+    }
+    .meta { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+    .meta strong { color: #fff; }
+    
+    .team-info { border-left: 3px solid var(--hcmut-gold); padding-left: 20px; }
+    .team-info h3 { font-size: 16px; color: var(--hcmut-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .member { font-size: 15px; margin-bottom: 8px; font-weight: 600; }
+    .member span { font-weight: 400; opacity: 0.7; font-family: monospace; }
+    
+    /* ─── RIGHT COLUMN: HORIZONTAL CAROUSEL ─── */
+    .right-panel {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      padding: 0 64px;
+      gap: 40px;
+      /* Dành ra khoảng trống bên phải để card cuối có thể nằm giữa màn hình */
+      padding-right: calc(60vw - 450px);
+    }
+    /* Ẩn thanh cuộn cho đẹp */
+    .right-panel::-webkit-scrollbar { display: none; }
+    
+    .carousel-item {
+      scroll-snap-align: start;
+      min-width: 450px;
+      max-width: 500px;
+      height: 60vh;
+      min-height: 400px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .carousel-item:hover {
+      border-color: rgba(251, 192, 45, 0.5);
+      transform: translateY(-8px);
+    }
+    
+    .card-top { display: flex; justify-content: space-between; margin-bottom: auto; }
+    .card-number { font-size: 48px; font-weight: 800; color: rgba(255,255,255,0.1); line-height: 1; }
+    .status { background: var(--hcmut-gold); color: var(--hcmut-dark-blue); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; height: fit-content; }
+    
+    .card-mid { margin-bottom: 40px; }
+    .card-tag { font-size: 12px; font-weight: 800; color: var(--hcmut-gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+    .card-title { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+    .card-desc { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+    
+    .view-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); padding: 16px 24px; border-radius: 100px;
+      color: #fff; font-weight: 700; font-size: 15px; transition: background 0.2s; text-decoration: none; width: fit-content;
+    }
+    .view-btn:hover { background: var(--hcmut-gold); color: var(--hcmut-dark-blue); }
+    .icon-arrow { width: 18px; height: 18px; stroke-width: 2.5; stroke: currentColor; fill: none; }
+    
+    /* Gợi ý cuộn ngang */
+    .scroll-hint { position: absolute; bottom: 40px; left: 64px; font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div>
+        <div class="logo-box">LOGO<br>HCMUT</div>
+        <h1 class="course-title">Programming Foundation for Data Analysis</h1>
+        <div class="meta">
+          <p>Semester 261, 2026–2027</p>
+          <p>Instructor: <strong>Lê Thành Sách</strong></p>
+        </div>
+      </div>
+      
+      <div class="team-info">
+        <h3>Group G8</h3>
+        <div class="member">Nguyễn Minh Chiến <span>/ 2570179</span></div>
+        <div class="member">Nguyễn Trọng Nhật <span>/ 2570472</span></div>
+      </div>
+      
+      <div class="scroll-hint">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Cuộn chuột ngang để xem Project
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL (CAROUSEL) -->
+    <div class="right-panel">
+      <!-- Item 1 -->
+      <div class="carousel-item">
+        <div class="card-top">
+          <div class="card-number">01</div>
+          <div class="status">In progress</div>
+        </div>
+        <div class="card-mid">
+          <div class="card-tag">Tabular Data</div>
+          <h2 class="card-title">Structured Analysis</h2>
+          <p class="card-desc">Exploratory analysis, preprocessing, and classification modeling for a highly imbalanced tabular dataset using Scikit-learn.</p>
+        </div>
+        <a href="tabular.html" class="view-btn">View Details <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="carousel-item">
+        <div class="card-top">
+          <div class="card-number">02</div>
+          <div class="status">In progress</div>
+        </div>
+        <div class="card-mid">
+          <div class="card-tag">Text Data</div>
+          <h2 class="card-title">NLP Classification</h2>
+          <p class="card-desc">Vietnamese news topic classification on a VnExpress corpus using TF-IDF and linear machine learning architectures.</p>
+        </div>
+        <a href="text.html" class="view-btn">View Details <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="carousel-item">
+        <div class="card-top">
+          <div class="card-number">03</div>
+          <div class="status">In progress</div>
+        </div>
+        <div class="card-mid">
+          <div class="card-tag">Image Data</div>
+          <h2 class="card-title">Computer Vision</h2>
+          <p class="card-desc">Image classification leveraging deep learning architectures like ResNet as feature extractors on a large-scale dataset.</p>
+        </div>
+        <a href="image.html" class="view-btn">View Details <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
