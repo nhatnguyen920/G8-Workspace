@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>G8 — Dashboard Layout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hcmut-blue: #003366; --hcmut-dark-blue: #0a1f35; --hcmut-bg: #071726;
+      --hcmut-gold: #fbc02d; --hcmut-gold-light: #fff176;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--hcmut-bg);
+      color: #fff;
+    }
+    
+    .app-container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* ─── SIDEBAR NAV ─── */
+    .sidebar {
+      width: 260px;
+      background: var(--hcmut-dark-blue);
+      border-right: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-container {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 48px;
+    }
+    .logo-box {
+      width: 40px; height: 40px; border: 1px solid var(--hcmut-gold); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 10px; color: var(--hcmut-gold); text-align: center;
+    }
+    .brand-name { font-weight: 700; font-size: 18px; letter-spacing: -0.5px; }
+    
+    .nav-menu { display: flex; flex-direction: column; gap: 8px; }
+    .nav-item {
+      padding: 12px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 12px;
+      transition: all 0.2s; cursor: pointer; text-decoration: none;
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+    .nav-item.active { background: rgba(251, 192, 45, 0.1); color: var(--hcmut-gold); }
+    .nav-icon { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+    
+    /* ─── MAIN CONTENT (DASHBOARD) ─── */
+    .main-content {
+      flex: 1; padding: 48px; overflow-y: auto; background: var(--hcmut-bg);
+    }
+    .header { margin-bottom: 40px; }
+    .course-title { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .course-subtitle { color: rgba(255,255,255,0.5); font-size: 15px; }
+    
+    /* BENTO GRID */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      gap: 24px;
+    }
+    
+    .widget {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 24px; display: flex; flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .widget:hover { border-color: rgba(251, 192, 45, 0.3); transform: translateY(-2px); }
+    
+    /* Kích thước các widget */
+    .w-team { grid-column: span 3; grid-row: span 1; display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+    .w-project { grid-column: span 1; grid-row: span 2; }
+    
+    /* Widget nội dung */
+    .w-title { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    
+    /* Team Widget */
+    .team-stats { display: flex; gap: 48px; }
+    .stat-box { display: flex; flex-direction: column; }
+    .stat-val { font-size: 36px; font-weight: 800; color: #fff; }
+    .stat-label { font-size: 14px; color: var(--hcmut-gold); font-weight: 600; }
+    .team-list { display: flex; gap: 24px; }
+    .member-badge { background: rgba(255,255,255,0.05); padding: 12px 24px; border-radius: 100px; display: flex; align-items: center; gap: 12px; }
+    .member-name { font-weight: 700; font-size: 15px; }
+    .member-id { font-family: monospace; font-size: 13px; color: rgba(255,255,255,0.5); }
+    
+    /* Project Widget */
+    .w-project { position: relative; }
+    .p-tag { font-size: 12px; font-weight: 800; color: var(--hcmut-gold); margin-bottom: 8px; }
+    .p-title { font-size: 24px; font-weight: 800; margin-bottom: 16px; }
+    .p-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    
+    .status-ring {
+      position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--hcmut-gold);
+    }
+    
+    .btn-open {
+      margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--hcmut-gold); color: var(--hcmut-dark-blue); font-weight: 700; font-size: 14px;
+      padding: 12px; border-radius: 12px; text-decoration: none; transition: background 0.2s;
+    }
+    .btn-open:hover { background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo-box">HCMUT</div>
+        <div class="brand-name">G8 Workspace</div>
+      </div>
+      <div class="nav-menu">
+        <a href="#" class="nav-item active">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Overview
+        </a>
+        <a href="tabular.html" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          Tabular Data
+        </a>
+        <a href="text.html" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Text Data
+        </a>
+        <a href="image.html" class="nav-item">
+          <svg class="nav-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          Image Data
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="main-content">
+      <div class="header">
+        <h1 class="course-title">Programming Foundation for Data Analysis</h1>
+        <div class="course-subtitle">Semester 261 (2026-2027) • Instructor: Lê Thành Sách</div>
+      </div>
+
+      <div class="dashboard-grid">
+        
+        <!-- ROW 1: TEAM OVERVIEW -->
+        <div class="widget w-team">
+          <div>
+            <div class="w-title">Group G8 Members</div>
+            <div class="team-list">
+              <div class="member-badge">
+                <span class="member-name">Nguyễn Minh Chiến</span>
+                <span class="member-id">#2570179</span>
+              </div>
+              <div class="member-badge">
+                <span class="member-name">Nguyễn Trọng Nhật</span>
+                <span class="member-id">#2570472</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-stats">
+            <div class="stat-box">
+              <span class="stat-val">03</span>
+              <span class="stat-label">Total Projects</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">100%</span>
+              <span class="stat-label">In Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2: PROJECTS -->
+        <!-- Tabular -->
+        <div class="widget w-project">
+          <div class="status-ring"></div>
+          <div class="p-tag">PROJECT 01</div>
+          <div class="p-title">Tabular Data</div>
+          <div class="p-desc">Exploratory analysis, preprocessing, and classification modeling for a highly imbalanced tabular dataset using Scikit-learn.</div>
+          <a href="tabular.html" class="btn-open">Open Workspace</a>
+        </div>
+
+        <!-- Text -->
+        <div class="widget w-project">
+          <div class="status-ring"></div>
+          <div class="p-tag">PROJECT 02</div>
+          <div class="p-title">Text Data</div>
+          <div class="p-desc">Vietnamese news topic classification on a VnExpress corpus using TF-IDF and linear machine learning architectures.</div>
+          <a href="text.html" class="btn-open">Open Workspace</a>
+        </div>
+
+        <!-- Image -->
+        <div class="widget w-project">
+          <div class="status-ring"></div>
+          <div class="p-tag">PROJECT 03</div>
+          <div class="p-title">Image Data</div>
+          <div class="p-desc">Image classification leveraging deep learning architectures like ResNet as feature extractors on a large-scale dataset.</div>
+          <a href="image.html" class="btn-open">Open Workspace</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
