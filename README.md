@@ -36,21 +36,5 @@ Natural Language Processing (NLP) techniques including text preprocessing, featu
 Computer Vision techniques encompassing image preprocessing and the application of deep learning architectures for image analysis.
 - [Workspace Link](https://nhatnguyen920.github.io/G8-Workspace/landing-page/image.html)
 
-## 🛠 Usage & Setup
-To run this project locally:
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/nhatnguyen920/G8-Workspace.git
-   ```
-2. Navigate into the directory:
-   ```bash
-   cd G8-Workspace
-   ```
-3. Open `index.html` in any modern web browser to view the dashboard:
-   ```bash
-   open index.html
-   ```
-
 ---
 *This project was built for the "Programming Foundation for Data Analysis" course.*
