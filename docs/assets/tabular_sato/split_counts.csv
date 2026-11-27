@@ -1,0 +1,4 @@
+split,rows,row_share,Active_0,Churned_1,positive_rate
+train,1400,0.7,700,700,0.5
+validation,300,0.15,150,150,0.5
+test,300,0.15,150,150,0.5

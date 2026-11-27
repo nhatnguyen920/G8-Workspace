@@ -1,0 +1,15 @@
+field,English meaning,meaning_vi,role,missing,distinct
+network_age,Elapsed time using the carrier; card does not specify the unit,Thời gian đã sử dụng dịch vụ; card không ghi rõ đơn vị,numeric X,0,1364
+Aggregate_Total_Rev,"Aggregated total revenue (rupees), Aug–Sep 2015","Doanh thu tổng gộp tháng 8–9/2015, rupee",numeric X,0,1982
+Aggregate_SMS_Rev,Aggregated SMS revenue,Doanh thu gộp từ SMS,numeric X,0,998
+Aggregate_Data_Rev,Aggregated data-service revenue,Doanh thu gộp từ dịch vụ dữ liệu,numeric X,0,307
+Aggregate_Data_Vol,Aggregated data-service volume; unit not specified,Dung lượng sử dụng dữ liệu; chưa rõ đơn vị,numeric X,0,1990
+Aggregate_Calls,Aggregated call count,Tổng số cuộc gọi,numeric X,0,666
+Aggregate_ONNET_REV,Aggregated on-network revenue,Doanh thu gộp từ liên lạc nội mạng,numeric X,0,1194
+Aggregate_OFFNET_REV,Aggregated off-network revenue,Doanh thu gộp từ liên lạc ngoại mạng,numeric X,0,1614
+Aggregate_complaint_count,Aggregated complaint count,Tổng số khiếu nại,numeric X,0,20
+aug_user_type,August service type: 2G / 3G / Other,Loại dịch vụ tháng 8: 2G/3G/Other,categorical X,245,3
+sep_user_type,September service type: 2G / 3G / Other,Loại dịch vụ tháng 9: 2G/3G/Other,categorical X,206,3
+aug_fav_a,August most-contacted other network,Mạng khác được liên lạc nhiều nhất tháng 8,categorical X,1,7
+sep_fav_a,September most-contacted other network,Mạng khác được liên lạc nhiều nhất tháng 9,categorical X,1,6
+Class,"Source customer status: Active=0, Churned=1","Nhãn nguồn: Active=0, Churned=1",target y,0,2

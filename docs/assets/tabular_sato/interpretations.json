@@ -1,0 +1,110 @@
+{
+  "target": {
+    "vi": "**Nhận xét:** Mỗi lớp có 1.000 hồ sơ, không cần tự SMOTE/undersample. Baseline luôn đoán một lớp đạt 50% accuracy trên split này; vẫn cần đọc precision/recall/F1 lớp Churned.",
+    "en": "**Interpretation:** Each class has 1,000 records; no additional resampling is needed. A constant-class baseline achieves 50% accuracy here; churn precision/recall/F1 remain necessary."
+  },
+  "missing": {
+    "vi": "**Nhận xét:** Train có 293 ô thiếu nguồn; nhiều nhất aug_user_type (11.36%). Điền nhóm Missing cho danh mục; không coi Other hoặc mã 0 là ô rỗng.",
+    "en": "**Interpretation:** Train contains 293 source-missing cells; largest share is aug_user_type (11.36%). Categorical Missing is separate from Other and literal code 0."
+  },
+  "missing_pattern": {
+    "vi": "**Nhận xét:** 181/1400 hồ sơ train có ít nhất một ô thiếu nguồn. Không xóa toàn hàng vì thiếu danh mục; thông tin số còn lại vẫn có thể hữu ích.",
+    "en": "**Interpretation:** 181/1400 training profiles have source-missing inputs. Categorical missingness alone does not justify deleting otherwise informative profiles."
+  },
+  "hist_network_age": {
+    "vi": "**Nhận xét:** n=1400, mean=1457.484, median=1142.000, skew=0.905; cột đông nhất có 245 hồ sơ. Có 3 thời gian âm trong train sẽ đổi thành missing ở bước chuẩn bị.",
+    "en": "**Interpretation:** n=1400, mean=1457.484, median=1142.000, skew=0.905; busiest bin=245 records. Training contains 3 negative durations, later treated as missing."
+  },
+  "hist_Aggregate_Total_Rev": {
+    "vi": "**Nhận xét:** n=1400, mean=894.703, median=619.221, skew=8.806; cột đông nhất có 819 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=894.703, median=619.221, skew=8.806; busiest bin=819 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_SMS_Rev": {
+    "vi": "**Nhận xét:** n=1400, mean=31.519, median=14.340, skew=5.499; cột đông nhất có 875 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=31.519, median=14.340, skew=5.499; busiest bin=875 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_Data_Rev": {
+    "vi": "**Nhận xét:** n=1400, mean=53.561, median=13.750, skew=26.966; cột đông nhất có 1359 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=53.561, median=13.750, skew=26.966; busiest bin=1359 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_Data_Vol": {
+    "vi": "**Nhận xét:** n=1400, mean=2953193.588, median=176029.803, skew=7.532; cột đông nhất có 1228 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=2953193.588, median=176029.803, skew=7.532; busiest bin=1228 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_Calls": {
+    "vi": "**Nhận xét:** n=1400, mean=246.768, median=104.000, skew=4.628; cột đông nhất có 891 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=246.768, median=104.000, skew=4.628; busiest bin=891 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_ONNET_REV": {
+    "vi": "**Nhận xét:** n=1400, mean=7438.861, median=1976.500, skew=9.448; cột đông nhất có 1174 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=7438.861, median=1976.500, skew=9.448; busiest bin=1174 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_OFFNET_REV": {
+    "vi": "**Nhận xét:** n=1400, mean=16278.832, median=5097.500, skew=5.792; cột đông nhất có 1018 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=16278.832, median=5097.500, skew=5.792; busiest bin=1018 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "hist_Aggregate_complaint_count": {
+    "vi": "**Nhận xét:** n=1400, mean=1.933, median=1.000, skew=8.154; cột đông nhất có 1157 hồ sơ. Mean/median và skew mô tả độ lệch; không tự xóa các giá trị lớn.",
+    "en": "**Interpretation:** n=1400, mean=1.933, median=1.000, skew=8.154; busiest bin=1157 records. Mean/median and skew describe asymmetry; large values are not automatically deleted."
+  },
+  "outliers": {
+    "vi": "**Nhận xét:** Cột Aggregate_Data_Vol có tỷ lệ bị đánh dấu cao nhất: 202/1400 (14.43%). Đây là dấu hiệu cần xem kỹ, chưa phải tỷ lệ dữ liệu sai.",
+    "en": "**Interpretation:** Aggregate_Data_Vol has the highest flagged share: 202/1400 (14.43%). This prompts inspection, not an error-rate claim."
+  },
+  "cat_aug_user_type": {
+    "vi": "**Nhận xét:** 4 nhóm có quan sát kể cả Missing nếu có; lớn nhất 3G (684 hồ sơ). Chưa thể suy ra nguy cơ rời mạng từ số lượng nhóm.",
+    "en": "**Interpretation:** 4 observed levels including Missing when present; largest=3G (684 profiles). Category frequency alone does not establish churn propensity."
+  },
+  "cat_sep_user_type": {
+    "vi": "**Nhận xét:** 4 nhóm có quan sát kể cả Missing nếu có; lớn nhất 3G (731 hồ sơ). Chưa thể suy ra nguy cơ rời mạng từ số lượng nhóm.",
+    "en": "**Interpretation:** 4 observed levels including Missing when present; largest=3G (731 profiles). Category frequency alone does not establish churn propensity."
+  },
+  "cat_aug_fav_a": {
+    "vi": "**Nhận xét:** 7 nhóm có quan sát kể cả Missing nếu có; lớn nhất ptcl (335 hồ sơ). Chưa thể suy ra nguy cơ rời mạng từ số lượng nhóm.",
+    "en": "**Interpretation:** 7 observed levels including Missing when present; largest=ptcl (335 profiles). Category frequency alone does not establish churn propensity."
+  },
+  "cat_sep_fav_a": {
+    "vi": "**Nhận xét:** 6 nhóm có quan sát kể cả Missing nếu có; lớn nhất ufone (834 hồ sơ). Chưa thể suy ra nguy cơ rời mạng từ số lượng nhóm.",
+    "en": "**Interpretation:** 6 observed levels including Missing when present; largest=ufone (834 profiles). Category frequency alone does not establish churn propensity."
+  },
+  "rate_aug_user_type": {
+    "vi": "**Nhận xét:** Cao nhất 2G=57.97% (n=295); thấp nhất 3G=44.44% (n=684). Chênh 13.52 điểm phần trăm chỉ mô tả mẫu.",
+    "en": "**Interpretation:** Highest=2G at 57.97% (n=295); lowest=3G at 44.44% (n=684). Gap=13.52 percentage points within the sample."
+  },
+  "rate_sep_user_type": {
+    "vi": "**Nhận xét:** Cao nhất 2G=57.88% (n=273); thấp nhất Missing=44.78% (n=134). Chênh 13.10 điểm phần trăm chỉ mô tả mẫu.",
+    "en": "**Interpretation:** Highest=2G at 57.88% (n=273); lowest=Missing at 44.78% (n=134). Gap=13.10 percentage points within the sample."
+  },
+  "rate_aug_fav_a": {
+    "vi": "**Nhận xét:** Cao nhất ptcl=60.60% (n=335); thấp nhất 0=30.23% (n=43). Chênh 30.36 điểm phần trăm chỉ mô tả mẫu.",
+    "en": "**Interpretation:** Highest=ptcl at 60.60% (n=335); lowest=0 at 30.23% (n=43). Gap=30.36 percentage points within the sample."
+  },
+  "rate_sep_fav_a": {
+    "vi": "**Nhận xét:** Cao nhất ptcl=75.82% (n=306); thấp nhất ufone=35.13% (n=834). Chênh 40.69 điểm phần trăm chỉ mô tả mẫu.",
+    "en": "**Interpretation:** Highest=ptcl at 75.82% (n=306); lowest=ufone at 35.13% (n=834). Gap=40.69 percentage points within the sample."
+  },
+  "corr": {
+    "vi": "**Nhận xét:** Total_Rev–Calls r=0.532. Tương quan cao có thể phản ánh thông tin chung, không bảo đảm tổng các nguồn doanh thu cùng đơn vị; r nhỏ không chứng minh độc lập.",
+    "en": "**Interpretation:** Total_Rev–Calls r=0.532. High correlation can indicate shared information, not confirmed cross-field units; small r does not establish independence."
+  },
+  "log1p": {
+    "vi": "**Nhận xét:** Skew nguồn/log1p=8.806/-0.700. log1p đổi thang đo và nén đuôi; không tự loại dữ liệu hay chứng minh cải thiện dự đoán.",
+    "en": "**Interpretation:** Source/log1p skew=8.806/-0.700. The transform changes scale and compresses tails; it neither deletes records nor proves predictive improvement."
+  },
+  "validation": {
+    "vi": "**Nhận xét:** Chọn Logistic + log1p, validation F1=0.7612. Logistic thường/log1p: F1=0.7492/0.7612, recall=0.8067/0.7333. Không dùng test để chọn thang đo hoặc mô hình.",
+    "en": "**Interpretation:** Selected Logistic + log1p: validation F1=0.7612. Ordinary/log1p Logistic F1=0.7492/0.7612, recall=0.8067/0.7333. Test does not choose transformation or model."
+  },
+  "confusion": {
+    "vi": "**Nhận xét:** Test n=300: TN=121, FP=29, FN=44, TP=106; F1=0.7439, recall=0.7067. Chỉ mô tả split của mẫu đã cân bằng; chưa xác nhận khả năng dự báo tương lai hay dân số nhà mạng.",
+    "en": "**Interpretation:** Test n=300: TN=121, FP=29, FN=44, TP=106; F1=0.7439, recall=0.7067. Scores describe this balanced-snapshot split, not prospective/operator-population validation."
+  },
+  "importance": {
+    "vi": "**Nhận xét:** Đứng đầu Aggregate_Total_Rev, F1 giảm trung bình 0.1472. Giá trị gần 0/âm không chứng minh cột vô dụng, nhất là khi các cột tương quan.",
+    "en": "**Interpretation:** Top field=Aggregate_Total_Rev, mean F1 decrease=0.1472. Near-zero/negative values do not prove uselessness, particularly with correlated predictors."
+  },
+  "final": {
+    "vi": "**Nhận xét:** Q1: train có 293 ô thiếu nguồn; toàn nguồn có 5 thời gian âm được đổi thành missing ở đầu vào. Q2: file cân bằng 1000/1000, tỷ lệ theo nhóm chỉ mô tả mẫu. Q3: chọn Logistic + log1p, validation F1=0.7612; Logistic thường/log1p F1=0.7492/0.7612. Q4: test F1=0.7439, chênh validation−test=0.0174; FN=44, FP=29. Không đổi mô hình sau khi xem test.",
+    "en": "**Interpretation:** Q1: 293 training source-missing cells; 5 source-negative durations become missing in model inputs. Q2: source classes=1000/1000, group rates describe the sample. Q3: selected Logistic + log1p, validation F1=0.7612; ordinary/log1p Logistic F1=0.7492/0.7612. Q4: test F1=0.7439; validation−test gap=0.0174; FN=44, FP=29. Test does not trigger reselection."
+  }
+}

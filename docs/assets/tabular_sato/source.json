@@ -1,0 +1,12 @@
+{
+  "dataset": "South Asian Churn dataset (SATO 2015)",
+  "dataset_page": "https://www.kaggle.com/datasets/mahreen/sato2015",
+  "download_url": "https://www.kaggle.com/api/v1/datasets/download/mahreen/sato2015",
+  "original_filename": "South Asian Wireless Telecom Operator (SATO 2015).csv",
+  "file": "sato2015.csv",
+  "sha256": "70f135b52bd31c3b5b42473d0fcb42651727a9680af0644735f4176c87cda8fe",
+  "license": "CC0: Public Domain",
+  "last_updated": "2017-10-11T19:49:09.947Z",
+  "source_context": "### Context\nThe  SATO  data  set  used  is  real  life  data  collected  from  a major wireless telecom operator in South Asia.",
+  "sampling": "The publisher explicitly describes this as a balanced dataset; population class prevalence and exact balancing procedure are not established by the card."
+}

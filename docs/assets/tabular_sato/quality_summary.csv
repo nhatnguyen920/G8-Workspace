@@ -1,0 +1,10 @@
+field,min,max,negative,zero
+network_age,-8.0,5451.0,5,0
+Aggregate_Total_Rev,4.91,24438.83,0,0
+Aggregate_SMS_Rev,0.0,873.98,0,299
+Aggregate_Data_Rev,0.0,8295.0,0,394
+Aggregate_Data_Vol,0.0586,155031212.8,0,0
+Aggregate_Calls,1.0,5727.0,0,0
+Aggregate_ONNET_REV,0.0,381174.0,0,408
+Aggregate_OFFNET_REV,0.0,431440.0,0,56
+Aggregate_complaint_count,1.0,49.0,0,0
